@@ -159,9 +159,9 @@ console.log(naver.domains); // 82개 도메인
 
 - [ ] 스코어링 v2 — 모델 검증, 가중치 조정, 외부 피드백 반영
 - [ ] 민간 딥리서치 확대 — 나머지 90개 기업
-- [ ] KOSIS/ECOS/DART 통계 DB 연동
-- [ ] 데이터셋 개별 상세 (스키마, 샘플, 갱신 주기)
-- [ ] **해외 기관·기업 추가** — 같은 기준으로 미국(data.gov), EU(data.europa.eu), 일본, 글로벌 테크(Google, AWS, Meta) 매핑. 한국 데이터 인프라가 글로벌 대비 어느 수준인지 직접 비교
+- [ ] **추가 소스 크롤/연동** — [AI Hub](https://aihub.or.kr) AI 학습 데이터셋, [KBig](https://kbig.kr) 빅데이터 포털, [e-나라지표](https://index.go.kr) 개방 추이, KOSIS/ECOS/DART 통계 DB
+- [ ] 데이터셋 메타데이터 강화 — 포맷 태그(CSV/JSON/API), 갱신 주기, 데이터 규모
+- [ ] **해외 기관·기업 추가** — 같은 기준으로 미국(data.gov), EU(data.europa.eu), 일본, 글로벌 테크(Google, AWS, Meta) 매핑. 한국이 글로벌 대비 어디쯤인지 직접 비교
 - [ ] AI 에이전트 전용 엔드포인트 (MCP 서버 / OpenAPI spec)
 
 ---
