@@ -1,0 +1,16 @@
+name: Feature Request
+description: 기능 제안
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 어떤 기능이 필요한가요?
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: 사용 사례
+      placeholder: 이 기능을 어떤 상황에서 사용하게 될지 알려주세요

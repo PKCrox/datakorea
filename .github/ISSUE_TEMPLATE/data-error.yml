@@ -1,0 +1,28 @@
+name: Data Error Report
+description: 데이터 오류 제보 (기관 정보, 데이터셋, 도메인)
+title: "[Data] "
+labels: ["data"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 오류 유형
+      options:
+        - 기관 정보 오류
+        - 데이터셋 정보 오류
+        - 도메인 정보 오류
+        - 누락된 기관/데이터
+    validations:
+      required: true
+  - type: input
+    id: org
+    attributes:
+      label: 관련 기관 ID
+      placeholder: "e.g., tech-naver, dgk-6110000"
+  - type: textarea
+    id: description
+    attributes:
+      label: 상세 설명
+      placeholder: 어떤 데이터가 잘못되었는지 알려주세요
+    validations:
+      required: true

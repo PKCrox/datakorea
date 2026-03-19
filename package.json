@@ -1,0 +1,47 @@
+{
+  "name": "datakorea",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Korean data accessibility map — 1,354 organizations, 95K+ datasets, 4K+ domains. Zero dependencies.",
+  "bin": {
+    "datakorea": "bin/datakorea.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "data/"
+  ],
+  "scripts": {
+    "dump": "node scripts/dump-supabase.js"
+  },
+  "keywords": [
+    "korea",
+    "korean",
+    "data",
+    "open-data",
+    "api",
+    "government",
+    "dataset",
+    "accessibility",
+    "public-data",
+    "data-catalog",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "Kangchan Park",
+  "homepage": "https://github.com/PKCrox/datakorea#readme",
+  "bugs": {
+    "url": "https://github.com/PKCrox/datakorea/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PKCrox/datakorea.git"
+  }
+}

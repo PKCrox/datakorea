@@ -1,0 +1,5 @@
+scripts/
+.github/
+.gitignore
+.npmignore
+.DS_Store
