@@ -663,13 +663,8 @@
             extra = '<br><span style="font-size:10px">도메인 ' + dom.total_domains + '개: ' + parts.join(' · ') + '</span>';
           }
         }
-        if (best.o.summary) {
-          const sum = best.o.summary.length > 80 ? best.o.summary.slice(0, 80) + '…' : best.o.summary;
-          extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(sum) + '</span>';
-        } else if (best.o.primary_business) {
-          const pb = best.o.primary_business.length > 80 ? best.o.primary_business.slice(0, 80) + '…' : best.o.primary_business;
-          extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(pb) + '</span>';
-        }
+        const desc1 = best.o.one_liner || best.o.primary_business || '';
+        if (desc1) extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(desc1) + '</span>';
         tip.innerHTML = '<b>' + esc(best.o.name) + '</b>'
           + (best.o.name_en ? ' <span style="font-size:10px;color:var(--dim)">' + esc(best.o.name_en) + '</span>' : '')
           + (tier ? ' <span style="font-size:10px;color:' + (TIER_COLORS[tier] || 'var(--accent)') + '">' + esc(tier) + '</span>' : '') + '<br>'
@@ -922,8 +917,8 @@
     if (o.data_tier) hdr.insertAdjacentHTML('beforeend', tierBadge(o.data_tier));
     dtd.appendChild(hdr);
 
-    // Summary / primary_business
-    const desc = o.summary || o.primary_business;
+    // Summary / one_liner / primary_business
+    const desc = o.one_liner || o.primary_business || o.summary;
     if (desc) {
       const sum = document.createElement('div'); sum.className = 'od-summary'; sum.textContent = desc;
       dtd.appendChild(sum);
