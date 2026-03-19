@@ -322,8 +322,8 @@
   </div>
   <div id="scatter-container"></div>
   <div class="tab-bar" id="tab-bar">
-    <button class="tab-btn active" data-tab="gov">공공 <span class="tab-count" id="gov-count"></span></button>
-    <button class="tab-btn" data-tab="private">민간 <span class="tab-count" id="priv-count"></span></button>
+    <button class="tab-btn" data-tab="gov">공공 <span class="tab-count" id="gov-count"></span></button>
+    <button class="tab-btn active" data-tab="private">민간 <span class="tab-count" id="priv-count"></span></button>
   </div>
   <div id="content"><div class="empty">로딩 중...</div></div>
   <div id="leaderboard"></div>
@@ -375,8 +375,8 @@
   const GOV_PREFIXES = [...GOV_REGIONS, ...GOV_REGIONS.map(r => r + '교육청')];
 
   // ── State ──
-  let allOrgs = [], activeTab = 'gov', sortKey = 'totalDs', sortAsc = false;
-  let scatterFilter = 'gov';
+  let allOrgs = [], activeTab = 'private', sortKey = 'totalDs', sortAsc = false;
+  let scatterFilter = 'all';
   let expandedSector = null, expandedPrivOrg = null;
   let privDomainData = null;
   let scatterCollapsed = false;
