@@ -36581,7 +36581,7 @@
       "depth": 88
     },
     "easiest_auth": "api_key",
-    "total_domains": 25
+    "total_domains": 18
   },
   {
     "id": "global-google-cloud",
@@ -36608,7 +36608,7 @@
       "depth": 75
     },
     "easiest_auth": "api_key",
-    "total_domains": 22
+    "total_domains": 19
   },
   {
     "id": "global-aws-opendata",
@@ -36635,7 +36635,7 @@
       "depth": 75
     },
     "easiest_auth": "none",
-    "total_domains": 18
+    "total_domains": 17
   },
   {
     "id": "global-stripe",
@@ -36689,7 +36689,7 @@
       "depth": 95
     },
     "easiest_auth": "api_key",
-    "total_domains": 12
+    "total_domains": 16
   },
   {
     "id": "global-spotify",
@@ -36716,7 +36716,7 @@
       "depth": 55
     },
     "easiest_auth": "oauth",
-    "total_domains": 10
+    "total_domains": 13
   },
   {
     "id": "global-us-census",
@@ -36743,7 +36743,7 @@
       "depth": 95
     },
     "easiest_auth": "api_key",
-    "total_domains": 20
+    "total_domains": 19
   },
   {
     "id": "global-eurostat",
@@ -36770,7 +36770,7 @@
       "depth": 85
     },
     "easiest_auth": "none",
-    "total_domains": 16
+    "total_domains": 17
   },
   {
     "id": "global-worldbank",
@@ -36797,6 +36797,168 @@
       "depth": 72
     },
     "easiest_auth": "none",
-    "total_domains": 14
+    "total_domains": 18
+  },
+  {
+    "id": "global-alibaba-cloud",
+    "name": "Alibaba Cloud",
+    "name_en": "Alibaba Cloud (Aliyun)",
+    "org_type": "global",
+    "industry": "tech",
+    "sub_industry": "cloud",
+    "website": "https://www.alibabacloud.com",
+    "dev_portal_url": "https://www.alibabacloud.com/help/en",
+    "summary": null,
+    "primary_business": "클라우드 컴퓨팅 / AI (Qwen) / 빅데이터",
+    "one_liner": "아시아 1위 클라우드, Qwen 오픈소스 AI 선도",
+    "data_summary": "Qwen LLM 433개 오픈소스, Tianchi 4000+ 데이터셋, 217개 클라우드 서비스",
+    "total_datasets": 4000,
+    "open_datasets": 4000,
+    "active_apis": 790,
+    "avg_ai_score": 63,
+    "data_tier": "L4",
+    "score_dimensions": {
+      "open": 55,
+      "dev": 58,
+      "breadth": 85,
+      "depth": 65
+    },
+    "easiest_auth": "api_key",
+    "total_domains": 18
+  },
+  {
+    "id": "global-tencent-cloud",
+    "name": "Tencent Cloud",
+    "name_en": "Tencent Cloud (Tencent Holdings)",
+    "org_type": "global",
+    "industry": "tech",
+    "sub_industry": "cloud",
+    "website": "https://www.tencentcloud.com",
+    "dev_portal_url": "https://www.tencentcloud.com/document/product",
+    "summary": null,
+    "primary_business": "클라우드 / WeChat 생태계 / 게이밍",
+    "one_liner": "WeChat 생태계 기반 클라우드, 국제 접근은 가능하나 WeChat은 중국 사업자만",
+    "data_summary": "WeChat 미니프로그램, 200+ 클라우드 서비스, 혼원 AI 모델",
+    "total_datasets": 200,
+    "open_datasets": 50,
+    "active_apis": 400,
+    "avg_ai_score": 62,
+    "data_tier": "L4",
+    "score_dimensions": {
+      "open": 50,
+      "dev": 60,
+      "breadth": 78,
+      "depth": 60
+    },
+    "easiest_auth": "api_key",
+    "total_domains": 18
+  },
+  {
+    "id": "global-bytedance",
+    "name": "ByteDance",
+    "name_en": "ByteDance (Volcengine)",
+    "org_type": "global",
+    "industry": "tech",
+    "sub_industry": "platform",
+    "website": "https://www.volcengine.com",
+    "dev_portal_url": "https://www.volcengine.com/docs",
+    "summary": null,
+    "primary_business": "TikTok / 화산엔진(Volcengine) / AI 콘텐츠",
+    "one_liner": "TikTok 모회사, 중국(화산엔진)·글로벌(BytePlus) 이원화",
+    "data_summary": "TikTok 데이터 접근 제한적, 화산엔진 중국전용, BytePlus 국제 API",
+    "total_datasets": 80,
+    "open_datasets": 20,
+    "active_apis": 200,
+    "avg_ai_score": 57,
+    "data_tier": "L3",
+    "score_dimensions": {
+      "open": 42,
+      "dev": 55,
+      "breadth": 72,
+      "depth": 58
+    },
+    "easiest_auth": "api_key",
+    "total_domains": 16
+  },
+  {
+    "id": "global-huawei-cloud",
+    "name": "Huawei Cloud",
+    "name_en": "Huawei Cloud",
+    "org_type": "global",
+    "industry": "tech",
+    "sub_industry": "telecom",
+    "website": "https://www.huaweicloud.com",
+    "dev_portal_url": "https://www.huaweicloud.com/intl/en-us/",
+    "summary": null,
+    "primary_business": "클라우드 / 5G 인프라 / AI (Ascend/MindSpore)",
+    "one_liner": "중국 2위 클라우드, 제재 리스크, MindSpore 오픈소스",
+    "data_summary": "240+ 클라우드 서비스, MindSpore ML 프레임워크, 제재 영향으로 접근성 불안",
+    "total_datasets": 100,
+    "open_datasets": 30,
+    "active_apis": 350,
+    "avg_ai_score": 53,
+    "data_tier": "L4",
+    "score_dimensions": {
+      "open": 38,
+      "dev": 50,
+      "breadth": 75,
+      "depth": 55
+    },
+    "easiest_auth": "api_key",
+    "total_domains": 16
+  },
+  {
+    "id": "global-baidu",
+    "name": "Baidu",
+    "name_en": "Baidu (Baidu AI Cloud)",
+    "org_type": "global",
+    "industry": "tech",
+    "sub_industry": "ai",
+    "website": "https://intl.cloud.baidu.com",
+    "dev_portal_url": "https://github.com/PaddlePaddle",
+    "summary": null,
+    "primary_business": "검색 / AI (ERNIE·PaddlePaddle) / 자율주행(Apollo)",
+    "one_liner": "검색+AI 강자, PaddlePaddle·ERNIE 오픈소스 세계급, 클라우드 API는 중국 잠금",
+    "data_summary": "PaddleOCR 72K stars, ERNIE 4.5 Apache-2.0, Apollo 자율주행 데이터셋",
+    "total_datasets": 4400,
+    "open_datasets": 4000,
+    "active_apis": 270,
+    "avg_ai_score": 50,
+    "data_tier": "L4",
+    "score_dimensions": {
+      "open": 40,
+      "dev": 35,
+      "breadth": 80,
+      "depth": 65
+    },
+    "easiest_auth": "api_key",
+    "total_domains": 18
+  },
+  {
+    "id": "global-jdcom",
+    "name": "JD.com",
+    "name_en": "JD.com (Jingdong)",
+    "org_type": "global",
+    "industry": "commerce",
+    "sub_industry": "retail",
+    "website": "https://www.jd.com",
+    "dev_portal_url": "https://jos.jd.com",
+    "summary": null,
+    "primary_business": "이커머스 / 물류 / 헬스케어 / 클라우드",
+    "one_liner": "중국 최대 리테일러, 2000+ API 보유하나 중국 사업자만 접근 가능",
+    "data_summary": "JOS 2000+ API, JD Cloud 86+ 서비스, 공급망 데이터 내부 전용",
+    "total_datasets": 200,
+    "open_datasets": 10,
+    "active_apis": 2000,
+    "avg_ai_score": 39,
+    "data_tier": "L3",
+    "score_dimensions": {
+      "open": 22,
+      "dev": 25,
+      "breadth": 72,
+      "depth": 65
+    },
+    "easiest_auth": "business_license",
+    "total_domains": 18
   }
 ]

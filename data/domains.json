@@ -54853,5 +54853,733 @@
     "accessibility": "api_open",
     "public_api_note": "Catalog API",
     "barrier_note": null
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Qwen LLM API",
+    "accessibility": "paid",
+    "estimated_scale": "10+ 모델 변형, OpenAI 호환 API",
+    "barrier_notes": "Alibaba Cloud 계정 + API 키 (셀프서비스). 1M 무료 토큰."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Qwen Vision/Multimodal API",
+    "accessibility": "paid",
+    "estimated_scale": "8+ 모델 (VL, Omni, QVQ, OCR)",
+    "barrier_notes": "Model Studio API 키 필요."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Qwen Open-Source Weights",
+    "accessibility": "open",
+    "estimated_scale": "HuggingFace 433개 모델, Apache-2.0",
+    "barrier_notes": "계정 불필요. HF/ModelScope에서 직접 다운로드."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Wanx Image Generation API",
+    "accessibility": "paid",
+    "estimated_scale": "6+ 모델 (text-to-image, editing)",
+    "barrier_notes": "Model Studio API 키 필요."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "CosyVoice TTS & Paraformer ASR",
+    "accessibility": "paid",
+    "estimated_scale": "TTS + ASR + 실시간 음성인식",
+    "barrier_notes": "Model Studio API 키 필요."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Video Generation API",
+    "accessibility": "paid",
+    "estimated_scale": "Text-to-video, Image-to-video, AnimateAnyone",
+    "barrier_notes": "API 키. 중국 리전에 더 많은 모델."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Tianchi Open Datasets",
+    "accessibility": "open",
+    "estimated_scale": "4,000+ 데이터셋, 30+ 산업 분야",
+    "barrier_notes": "Tianchi 계정 (해외 로그인 가능). 무료."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Tianchi Competition Data",
+    "accessibility": "open",
+    "estimated_scale": "600+ 대회, 라벨 데이터셋",
+    "barrier_notes": "가입 필요. 대회별 약관."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "OSS Object Storage API",
+    "accessibility": "paid",
+    "estimated_scale": "REST API + 8개 언어 SDK",
+    "barrier_notes": "클라우드 계정 + 과금. 무료 티어 제공."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "ECS Compute API",
+    "accessibility": "paid",
+    "estimated_scale": "100+ API 오퍼레이션",
+    "barrier_notes": "클라우드 계정 + 과금. $15 트라이얼 크레딧."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "RDS Database API",
+    "accessibility": "paid",
+    "estimated_scale": "MySQL/PostgreSQL/SQL Server 관리형 DB",
+    "barrier_notes": "클라우드 계정 필요."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "MaxCompute Big Data",
+    "accessibility": "paid",
+    "estimated_scale": "서버리스 데이터웨어하우스, SQL/MapReduce",
+    "barrier_notes": "클라우드 계정. 엔터프라이즈 요금제."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "DashVector Search",
+    "accessibility": "paid",
+    "estimated_scale": "RAG/유사도 검색용 벡터 DB",
+    "barrier_notes": "Model Studio 생태계. API 키."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "PAI ML Platform",
+    "accessibility": "paid",
+    "estimated_scale": "모델 학습, 서빙(PAI-EAS), 라벨링(iTAG)",
+    "barrier_notes": "클라우드 계정. GPU 별도 과금."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Cloud Marketplace (3rd-party)",
+    "accessibility": "paid",
+    "estimated_scale": "7개 산업 ISV 솔루션",
+    "barrier_notes": "마켓플레이스 계정. 벤더별 다양한 요금."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "CDN & Network Services",
+    "accessibility": "paid",
+    "estimated_scale": "3,200+ 글로벌 노드, 70+ 국가",
+    "barrier_notes": "클라우드 계정. 트래픽/대역폭 과금."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "Cloud Security Suite",
+    "accessibility": "paid",
+    "estimated_scale": "26개 보안 제품 (WAF, DDoS, SIEM)",
+    "barrier_notes": "클라우드 계정. 일부 엔터프라이즈 전용."
+  },
+  {
+    "org_id": "global-alibaba-cloud",
+    "domain": "ModelScope Hub",
+    "accessibility": "open",
+    "estimated_scale": "수천 개 모델 + 데이터셋",
+    "barrier_notes": "무료 계정. DAMO Academy 오픈소스 허브."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "WeChat Mini Program API",
+    "accessibility": "partnership",
+    "estimated_scale": "1000+ API, 4M+ 미니프로그램",
+    "barrier_notes": "중국 사업자등록증 필수. 해외 법인 불가."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "WeChat Official Account API",
+    "accessibility": "partnership",
+    "estimated_scale": "메시징, 결제, 사용자 관리",
+    "barrier_notes": "중국 사업자등록증 + 위챗 인증 필수."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Tencent Maps API",
+    "accessibility": "paid",
+    "estimated_scale": "지오코딩, 경로, POI 검색",
+    "barrier_notes": "중국 개발자 계정 필요. 중국 내 정확도 최고."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "CVM/Lighthouse Compute",
+    "accessibility": "paid",
+    "estimated_scale": "30+ 리전 글로벌 인프라",
+    "barrier_notes": "국제 계정 생성 가능. KYC 필요."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "COS Object Storage",
+    "accessibility": "paid",
+    "estimated_scale": "S3 호환 오브젝트 스토리지",
+    "barrier_notes": "텐센트 클라우드 국제 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "TencentDB (MySQL/Redis/MongoDB)",
+    "accessibility": "paid",
+    "estimated_scale": "10+ DB 엔진 관리형 서비스",
+    "barrier_notes": "텐센트 클라우드 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Hunyuan AI Model API",
+    "accessibility": "paid",
+    "estimated_scale": "텍스트/이미지/비디오 생성 LLM",
+    "barrier_notes": "텐센트 클라우드 계정 + API 키. 가격 경쟁적."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "TRTC Real-Time Communication",
+    "accessibility": "paid",
+    "estimated_scale": "영상통화, 라이브스트리밍, 인터랙티브",
+    "barrier_notes": "텐센트 클라우드 계정. 무료 체험판."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "IM Instant Messaging SDK",
+    "accessibility": "paid",
+    "estimated_scale": "채팅, 그룹, 파일 전송",
+    "barrier_notes": "텐센트 클라우드 계정. 무료 티어."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "VOD/Live Streaming",
+    "accessibility": "paid",
+    "estimated_scale": "트랜스코딩, CDN, DRM",
+    "barrier_notes": "텐센트 클라우드 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "OCR/NLP/Vision AI APIs",
+    "accessibility": "paid",
+    "estimated_scale": "20+ AI 인식 서비스",
+    "barrier_notes": "클라우드 계정. 무료 호출량 제공."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Cloud Gaming Solution",
+    "accessibility": "partnership",
+    "estimated_scale": "클라우드 게이밍 + GPU 렌더링",
+    "barrier_notes": "엔터프라이즈 파트너십. 게이밍 업계 특화."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Security Services (WAF/DDoS)",
+    "accessibility": "paid",
+    "estimated_scale": "15+ 보안 서비스",
+    "barrier_notes": "텐센트 클라우드 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Serverless Cloud Functions",
+    "accessibility": "paid",
+    "estimated_scale": "SCF + API Gateway",
+    "barrier_notes": "텐센트 클라우드 계정. 무료 티어."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Big Data (EMR/CDWPG)",
+    "accessibility": "paid",
+    "estimated_scale": "Hadoop, Spark, 데이터웨어하우스",
+    "barrier_notes": "텐센트 클라우드 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "CDN & Edge Computing",
+    "accessibility": "paid",
+    "estimated_scale": "2,800+ 노드, 글로벌 엣지",
+    "barrier_notes": "텐센트 클라우드 계정."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "Tencent Meeting (VooV) API",
+    "accessibility": "paid",
+    "estimated_scale": "화상회의 통합 API",
+    "barrier_notes": "비즈니스 계정. 국제 버전(VooV) 제공."
+  },
+  {
+    "org_id": "global-tencent-cloud",
+    "domain": "QQ Open Platform",
+    "accessibility": "partnership",
+    "estimated_scale": "QQ 로그인, 소셜 기능 통합",
+    "barrier_notes": "중국 개발자 인증 필요."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "TikTok for Developers API",
+    "accessibility": "partnership",
+    "estimated_scale": "Login Kit, Share Kit, Display API",
+    "barrier_notes": "개발자 등록 + 앱 심사. 데이터 접근 크게 제한 (2024~)."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "TikTok Shop API",
+    "accessibility": "partnership",
+    "estimated_scale": "이커머스 통합 (상품, 주문, 물류)",
+    "barrier_notes": "셀러 등록 + 비즈니스 인증 필수."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "BytePlus Recommend",
+    "accessibility": "paid",
+    "estimated_scale": "TikTok 급 추천 알고리즘 API",
+    "barrier_notes": "BytePlus 계정 (국제). 엔터프라이즈 가격."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "BytePlus VideoOne/Live",
+    "accessibility": "paid",
+    "estimated_scale": "실시간 스트리밍 + 비디오 처리",
+    "barrier_notes": "BytePlus 계정. 사용량 기반 과금."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "BytePlus CDN & Edge",
+    "accessibility": "paid",
+    "estimated_scale": "2,800+ 노드 글로벌 CDN",
+    "barrier_notes": "BytePlus 계정."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Doubao (豆包) LLM",
+    "accessibility": "paid",
+    "estimated_scale": "텍스트/이미지 생성, Function Call",
+    "barrier_notes": "화산엔진 중국 계정 필요. 중국 전용."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine ML Platform",
+    "accessibility": "paid",
+    "estimated_scale": "모델 학습, 서빙, AutoML",
+    "barrier_notes": "화산엔진 중국 계정. 실명인증 필수."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine RTC/IM",
+    "accessibility": "paid",
+    "estimated_scale": "실시간 통신 + 메시징",
+    "barrier_notes": "화산엔진 계정. 중국 우선."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Compute (ECS)",
+    "accessibility": "paid",
+    "estimated_scale": "가상서버, GPU, 컨테이너",
+    "barrier_notes": "화산엔진 계정. 중국 리전 위주."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Storage & DB",
+    "accessibility": "paid",
+    "estimated_scale": "TOS 오브젝트 스토리지, RDS, Redis",
+    "barrier_notes": "화산엔진 계정."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Lark/Feishu Open Platform",
+    "accessibility": "paid",
+    "estimated_scale": "봇, 워크플로우, 문서 API",
+    "barrier_notes": "Lark(국제)/Feishu(중국) 워크스페이스 필요."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Data Analytics",
+    "accessibility": "paid",
+    "estimated_scale": "DataRangers 사용자 분석 + A/B 테스트",
+    "barrier_notes": "화산엔진 계정. 일부 기능 중국 전용."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Translation API",
+    "accessibility": "paid",
+    "estimated_scale": "50+ 언어 기계번역",
+    "barrier_notes": "화산엔진 계정."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine OCR/Vision AI",
+    "accessibility": "paid",
+    "estimated_scale": "신분증, 영수증, 차량번호판 인식",
+    "barrier_notes": "화산엔진 계정. 중국 문서 특화."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "BytePlus Effects (AR)",
+    "accessibility": "paid",
+    "estimated_scale": "AR 필터, 뷰티 효과, 가상 피팅",
+    "barrier_notes": "BytePlus 계정. 사용량 과금."
+  },
+  {
+    "org_id": "global-bytedance",
+    "domain": "Volcengine Content Moderation",
+    "accessibility": "paid",
+    "estimated_scale": "이미지/비디오/텍스트 심의",
+    "barrier_notes": "화산엔진 계정. 중국 규정 기반."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "ECS/BMS Compute",
+    "accessibility": "paid",
+    "estimated_scale": "가상서버, 베어메탈, GPU (Ascend)",
+    "barrier_notes": "화웨이 클라우드 국제 계정. KYC 필요."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "OBS Object Storage",
+    "accessibility": "paid",
+    "estimated_scale": "S3 호환 오브젝트 스토리지",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "GaussDB/RDS Database",
+    "accessibility": "paid",
+    "estimated_scale": "MySQL, PostgreSQL, GaussDB(분산형)",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "MindSpore ML Framework",
+    "accessibility": "open",
+    "estimated_scale": "오픈소스 ML 프레임워크, Apache-2.0",
+    "barrier_notes": "GitHub/Gitee 다운로드. Ascend NPU 최적화."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "ModelArts AI Platform",
+    "accessibility": "paid",
+    "estimated_scale": "데이터 라벨링 → 학습 → 배포 풀사이클",
+    "barrier_notes": "화웨이 클라우드 계정. Ascend GPU 과금."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "Pangu AI Models API",
+    "accessibility": "paid",
+    "estimated_scale": "자연어, 비전, 과학계산 대규모 모델",
+    "barrier_notes": "화웨이 클라우드 계정. 엔터프라이즈 협의."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "CDN & Edge (CloudPond)",
+    "accessibility": "paid",
+    "estimated_scale": "글로벌 엣지 컴퓨팅 + CDN",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "5G/IoT Platform",
+    "accessibility": "paid",
+    "estimated_scale": "디바이스 관리, MQTT, 규칙엔진",
+    "barrier_notes": "화웨이 클라우드 계정. 5G 인프라 특화."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "OCR/NLP/Speech AI APIs",
+    "accessibility": "paid",
+    "estimated_scale": "20+ AI 인식 서비스",
+    "barrier_notes": "화웨이 클라우드 계정. 무료 호출량."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "FunctionGraph (Serverless)",
+    "accessibility": "paid",
+    "estimated_scale": "서버리스 함수 + API Gateway",
+    "barrier_notes": "화웨이 클라우드 계정. 무료 티어."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "MapReduce/Data Lake",
+    "accessibility": "paid",
+    "estimated_scale": "MRS, DLI, 데이터레이크 분석",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "Container (CCE/SWR)",
+    "accessibility": "paid",
+    "estimated_scale": "Kubernetes 관리형 + 컨테이너 레지스트리",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "Cloud Security (HSS/WAF)",
+    "accessibility": "paid",
+    "estimated_scale": "15+ 보안 서비스",
+    "barrier_notes": "화웨이 클라우드 계정."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "HMS Core (Mobile APIs)",
+    "accessibility": "paid",
+    "estimated_scale": "푸시, 인앱결제, 분석, 지도",
+    "barrier_notes": "HMS 개발자 계정. 화웨이 디바이스 특화."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "Petal Maps API",
+    "accessibility": "paid",
+    "estimated_scale": "지도, 경로, 장소 검색",
+    "barrier_notes": "HMS 개발자 계정. Google Maps 대안."
+  },
+  {
+    "org_id": "global-huawei-cloud",
+    "domain": "HarmonyOS Open Platform",
+    "accessibility": "partnership",
+    "estimated_scale": "앱 개발, 디바이스 연동 API",
+    "barrier_notes": "개발자 인증 + 앱 심사. 화웨이 생태계 전용."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddlePaddle Core Framework",
+    "accessibility": "open",
+    "estimated_scale": "오픈소스 ML 프레임워크, 107개 GitHub 레포",
+    "barrier_notes": "Apache-2.0. pip install. 장벽 없음."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddleHub Pretrained Models",
+    "accessibility": "open",
+    "estimated_scale": "400+ 모델 (CV/NLP/Speech/Video)",
+    "barrier_notes": "Apache-2.0. GitHub + pip."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddleOCR",
+    "accessibility": "open",
+    "estimated_scale": "100+ 언어, PP-OCRv5, 72K+ stars",
+    "barrier_notes": "Apache-2.0. 세계 최고 수준 OCR."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddleDetection",
+    "accessibility": "open",
+    "estimated_scale": "30+ 알고리즘, 300+ 사전학습 모델",
+    "barrier_notes": "Apache-2.0. 객체 탐지 전문."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddleSpeech ASR/TTS",
+    "accessibility": "open",
+    "estimated_scale": "20+ 모델, 중/영/광동어",
+    "barrier_notes": "Apache-2.0. NAACL2022 수상."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "PaddleSeg Segmentation",
+    "accessibility": "open",
+    "estimated_scale": "45+ 알고리즘, 140+ 모델",
+    "barrier_notes": "Apache-2.0."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "ERNIE 4.5 Open-Source",
+    "accessibility": "open",
+    "estimated_scale": "10개 변형, 최대 424B 파라미터",
+    "barrier_notes": "Apache-2.0. HuggingFace 다운로드. 가입 불필요."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu Translate API",
+    "accessibility": "paid",
+    "estimated_scale": "201개 언어, 무료 1M자/월",
+    "barrier_notes": "Baidu 계정. 해외 가입 가능."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "ApolloScape Driving Datasets",
+    "accessibility": "open",
+    "estimated_scale": "8개 데이터셋, 144K+ 라벨 이미지",
+    "barrier_notes": "학술용. 무료 다운로드."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Apollo Autonomous Driving",
+    "accessibility": "open",
+    "estimated_scale": "v11.0, 풀스택 자율주행, 26.5K stars",
+    "barrier_notes": "Apache-2.0. 하드웨어 필요."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu Maps API",
+    "accessibility": "paid",
+    "estimated_scale": "10개 엔드포인트, 3.4억+ POI",
+    "barrier_notes": "개인: 중국 국적 필요. 기업: 중국 사업자등록증."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "ERNIE/Qianfan LLM API",
+    "accessibility": "paid",
+    "estimated_scale": "ERNIE 4.0/4.5/5.0 + 서드파티 모델",
+    "barrier_notes": "Baidu AI Cloud 계정 + 실명인증."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu AI Cloud Vision APIs",
+    "accessibility": "paid",
+    "estimated_scale": "10만+ 객체 인식, 10+ API",
+    "barrier_notes": "중국 클라우드 계정 + 인증."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu AI Cloud NLP APIs",
+    "accessibility": "paid",
+    "estimated_scale": "10+ 기능 (감정분석, 주소인식, 엔티티)",
+    "barrier_notes": "중국 클라우드 계정 + 인증."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu AI Cloud Speech APIs",
+    "accessibility": "paid",
+    "estimated_scale": "STT + TTS + 음성 웨이크업",
+    "barrier_notes": "중국 클라우드 계정 + 인증."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "EasyDL No-Code AutoML",
+    "accessibility": "paid",
+    "estimated_scale": "16.9만+ 모델, 6.5만+ 기업 사용",
+    "barrier_notes": "중국 클라우드 계정. 웹 기반."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Wenxin Yige Image Gen",
+    "accessibility": "paid",
+    "estimated_scale": "Text-to-image, 다양한 스타일",
+    "barrier_notes": "Baidu 계정. 중국 시장 중심."
+  },
+  {
+    "org_id": "global-baidu",
+    "domain": "Baidu Research BROAD",
+    "accessibility": "open",
+    "estimated_scale": "~10개 데이터셋 (의료, 검색, NLP)",
+    "barrier_notes": "학술/연구용. 무료 다운로드."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JOS Product Catalog API",
+    "accessibility": "paid",
+    "estimated_scale": "JOS 2000+ API 중 상품 CRUD",
+    "barrier_notes": "중국 사업자등록증, JOS 개발자 등록, API 권한 승인."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JOS Order Management API",
+    "accessibility": "paid",
+    "estimated_scale": "주문 생명주기 관리",
+    "barrier_notes": "중국 사업자등록증 + JOS 등록."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Logistics Tracking API",
+    "accessibility": "partnership",
+    "estimated_scale": "풀패스 추적, 입출고 관리",
+    "barrier_notes": "open.jdl.com 등록 + 인터페이스 권한 신청."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Union/Affiliate API",
+    "accessibility": "paid",
+    "estimated_scale": "15개 엔드포인트 (링크, 랭킹, 검색)",
+    "barrier_notes": "가입 기반. 일부 무료, 대부분 구독."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Compute (CVM/GPU)",
+    "accessibility": "paid",
+    "estimated_scale": "11개 컴퓨팅 서비스",
+    "barrier_notes": "JD Cloud 계정 (중국 전화인증 필요 가능성)."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Database (StarDB/TiDB)",
+    "accessibility": "paid",
+    "estimated_scale": "13개 DB 서비스 (벡터 DB Milvus 포함)",
+    "barrier_notes": "JD Cloud 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Object Storage",
+    "accessibility": "paid",
+    "estimated_scale": "표준 클라우드 스토리지",
+    "barrier_notes": "JD Cloud 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JoyAgent AI Framework",
+    "accessibility": "open",
+    "estimated_scale": "10K+ GitHub stars, 멀티모달",
+    "barrier_notes": "Apache-2.0 오픈소스. 장벽 없음."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "ChatRhino LLM API",
+    "accessibility": "partnership",
+    "estimated_scale": "1000억 파라미터, 공급망 30% 학습",
+    "barrier_notes": "엔터프라이즈 파트너십. 가격 비공개."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Health Kepler API",
+    "accessibility": "partnership",
+    "estimated_scale": "약국 상품, 가격, 재고, 주문",
+    "barrier_notes": "JD Health 파트너십 계약."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Health Telemedicine API",
+    "accessibility": "partnership",
+    "estimated_scale": "상담, 처방, 예약",
+    "barrier_notes": "파트너십 + 의료 규정 준수."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud CDN/Network",
+    "accessibility": "paid",
+    "estimated_scale": "11개 네트워크 서비스",
+    "barrier_notes": "JD Cloud 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Security",
+    "accessibility": "paid",
+    "estimated_scale": "25+ 보안 서비스",
+    "barrier_notes": "JD Cloud 엔터프라이즈 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Container/K8s",
+    "accessibility": "paid",
+    "estimated_scale": "9개 컨테이너/미들웨어 서비스",
+    "barrier_notes": "JD Cloud 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JDsearch Academic Dataset",
+    "accessibility": "open",
+    "estimated_scale": "17만 사용자, 1200만 상품, 2600만 인터랙션",
+    "barrier_notes": "학술용. GitHub 다운로드."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Supply Chain Intelligence",
+    "accessibility": "internal",
+    "estimated_scale": "경慧 플랫폼 3.0, 판매 예측, 재고",
+    "barrier_notes": "엔터프라이즈 파트너십만. Gartner Top 25."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JD Cloud Big Data/Analytics",
+    "accessibility": "paid",
+    "estimated_scale": "5개 분석 서비스 (ClickHouse, BI)",
+    "barrier_notes": "JD Cloud 계정."
+  },
+  {
+    "org_id": "global-jdcom",
+    "domain": "JoyCode Coding Assistant",
+    "accessibility": "open",
+    "estimated_scale": "IntelliJ 플러그인, 코드 자동생성",
+    "barrier_notes": "JetBrains 마켓플레이스. 무료 설치."
   }
 ]
