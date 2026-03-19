@@ -58,21 +58,12 @@
   .hero h1 { font-family: var(--head); font-size: 2rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 3px; color: var(--accent); margin-bottom: 2px; position: relative; }
   .hero .sub { font-size: 12px; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; }
-
-  /* ── KPI Grid ── */
-  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
-  .kpi-card { background: var(--bg1); border: 1px solid var(--line); border-radius: 8px;
-    padding: 14px 16px; position: relative; overflow: hidden; }
-  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-  .kpi-card:nth-child(1)::before { background: var(--accent); }
-  .kpi-card:nth-child(2)::before { background: var(--up); }
-  .kpi-card:nth-child(3)::before { background: var(--warn); }
-  .kpi-n { font-family: var(--mono); font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 500;
-    color: var(--text); letter-spacing: -0.5px; line-height: 1.1; }
-  .kpi-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .kpi-sub { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 6px; }
-  .kpi-bar { height: 3px; border-radius: 2px; background: rgba(255,255,255,0.04); margin-top: 6px; overflow: hidden; }
-  .kpi-bar-fill { height: 100%; border-radius: 2px; transition: width 1s cubic-bezier(0.16,1,0.3,1); }
+  .hero-top { display: flex; align-items: center; justify-content: space-between; }
+  .gh-star { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 11px;
+    color: var(--muted); text-decoration: none; padding: 5px 10px; border: 1px solid var(--line);
+    border-radius: 5px; transition: all 0.15s; flex-shrink: 0; }
+  .gh-star:hover { color: var(--text); border-color: var(--accent); background: rgba(245,166,35,0.06); }
+  .gh-star svg { width: 14px; height: 14px; fill: currentColor; }
 
   .search-row { display: flex; gap: 8px; max-width: 520px; }
   .search-row input { flex: 1; padding: 10px 14px; background: var(--bg1); border: 1px solid var(--line);
@@ -190,16 +181,33 @@
 
   /* ── Org detail ── */
   .org-detail-row > td { padding: 0 !important; }
-  .org-detail { padding: 8px 14px; background: rgba(245,166,35,0.03); border-left: 2px solid var(--accent); }
-  .org-detail-head { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .od-link { font-size: 11px; color: var(--accent); text-decoration: none; }
-  .od-link:hover { text-decoration: underline; }
-  .dim-breakdown { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
-  .dim-item { display: flex; align-items: center; gap: 4px; }
-  .dim-item-label { font-family: var(--mono); font-size: 9px; color: var(--dim); width: 32px; text-align: right; }
-  .dim-item-bar { width: 40px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.06); overflow: hidden; }
-  .dim-item-fill { height: 100%; border-radius: 2px; }
-  .dim-item-val { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--text); width: 18px; }
+  .org-detail { padding: 16px 20px; background: rgba(245,166,35,0.03); border-left: 2px solid var(--accent); }
+  .od-header { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .od-title { font-family: var(--head); font-size: 18px; font-weight: 700; color: var(--text); }
+  .od-en { font-size: 12px; color: var(--dim); }
+  .od-industry { font-size: 11px; color: var(--muted); }
+  .od-summary { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; max-width: 700px; }
+  .od-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; margin-bottom: 12px; }
+  .od-stat { background: var(--bg1); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; text-align: center; }
+  .od-stat-n { font-family: var(--mono); font-size: 16px; font-weight: 600; color: var(--text); }
+  .od-stat-l { font-size: 10px; color: var(--dim); margin-top: 2px; }
+  .od-dims { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; margin-bottom: 12px; }
+  .od-dim { display: flex; align-items: center; gap: 6px; }
+  .od-dim-lbl { font-family: var(--mono); font-size: 10px; color: var(--dim); width: 50px; text-align: right; flex-shrink: 0; }
+  .od-dim-track { flex: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.06); overflow: hidden; }
+  .od-dim-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+  .od-dim-val { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--text); width: 24px; }
+  .od-domains { margin-bottom: 10px; }
+  .od-dom-title { font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .od-dom-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 4px; }
+  .od-dom-item { font-size: 11px; padding: 4px 8px; background: rgba(255,255,255,0.02); border-radius: 4px;
+    display: flex; align-items: center; gap: 6px; }
+  .od-dom-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
+  .od-dom-desc { font-size: 10px; color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
+  .od-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .od-link { font-size: 11px; color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid rgba(245,166,35,0.25); border-radius: 4px; transition: all 0.15s; }
+  .od-link:hover { background: rgba(245,166,35,0.1); text-decoration: none; }
 
   /* ── Private company row ── */
   .pc-name { font-weight: 600; cursor: pointer; }
@@ -256,7 +264,7 @@
   .tooltip { position: fixed; z-index: 1000; display: none; padding: 8px 12px;
     background: rgba(20,19,22,0.96); border: 1px solid var(--line); border-radius: 6px;
     font-size: 12px; line-height: 1.5; color: var(--text); pointer-events: none;
-    max-width: 280px; backdrop-filter: blur(8px); }
+    max-width: 340px; backdrop-filter: blur(8px); }
   .tooltip b { color: var(--accent); font-weight: 600; }
   .tooltip .tv { color: var(--text); font-family: var(--mono); font-weight: 500; }
 
@@ -274,9 +282,6 @@
   @media (max-width: 768px) {
     .hero h1 { font-size: 1.5rem; }
     .search-row { max-width: 100%; }
-    .kpi-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .kpi-card { padding: 10px 12px; }
-    .kpi-n { font-size: 1.1rem; }
     .scatter-wrap canvas { height: 220px; }
     .tbl { font-size: 11px; }
     .tbl th, .tbl td { padding: 5px 6px; }
@@ -292,10 +297,6 @@
   @media (max-width: 480px) {
     .wrap { padding: 12px 10px 60px; }
     .hero h1 { font-size: 1.2rem; letter-spacing: 1px; }
-    .kpi-grid { gap: 4px; }
-    .kpi-card { padding: 8px 10px; }
-    .kpi-n { font-size: 1rem; }
-    .kpi-label { font-size: 10px; }
     .scatter-wrap canvas { height: 170px; }
   }
 </style>
@@ -304,22 +305,29 @@
 <div class="strip" id="strip"></div>
 <div class="wrap">
   <div class="hero">
-    <h1>DATAKOREA</h1>
-    <div class="sub">한국 데이터 접근성 지도</div>
-    <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="hero-top">
+      <div>
+        <h1>DATAKOREA</h1>
+        <div class="sub">한국 데이터 접근성 지도</div>
+      </div>
+      <a class="gh-star" href="https://github.com/PKCrox/datakorea" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+        Star on GitHub
+      </a>
+    </div>
     <div class="search-row">
       <input type="text" id="search" placeholder="기관 또는 데이터셋 검색..." maxlength="200" autocomplete="off">
       <button id="search-btn">검색</button>
     </div>
   </div>
-  <div id="leaderboard"></div>
-  <div id="tier-hist"></div>
   <div id="scatter-container"></div>
   <div class="tab-bar" id="tab-bar">
     <button class="tab-btn active" data-tab="gov">공공 <span class="tab-count" id="gov-count"></span></button>
     <button class="tab-btn" data-tab="private">민간 <span class="tab-count" id="priv-count"></span></button>
   </div>
   <div id="content"><div class="empty">로딩 중...</div></div>
+  <div id="leaderboard"></div>
+  <div id="tier-hist"></div>
 </div>
 <div class="tooltip" id="tooltip"></div>
 <script>
@@ -392,19 +400,6 @@
     return '<span class="tier-badge" style="background:' + color + '22;color:' + color + ';border:1px solid ' + color + '44">' + esc(tier) + '</span>';
   }
 
-  // ── Ticker animation (romantic detail) ──
-  function animateTicker(el, target, duration) {
-    if (!el || !target) { if (el) el.textContent = (target || 0).toLocaleString(); return; }
-    const start = performance.now();
-    function frame(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const ease = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(target * ease).toLocaleString();
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
   // ── Strip ──
   function renderStrip(s) {
     const strip = $('#strip');
@@ -421,62 +416,6 @@
       item.innerHTML = '<span class="strip-val">' + esc(String(val)) + '</span><span class="strip-lbl">' + esc(lbl) + '</span>';
       strip.appendChild(item);
     }
-  }
-
-  // ── KPI Grid ──
-  function renderKPIGrid(s) {
-    const el = $('#kpi-grid');
-    if (!el) return;
-    const govOrgs = allOrgs.filter(o => o.org_type === 'gov');
-    const prvOrgs = allOrgs.filter(o => o.org_type !== 'gov');
-    const apiPct = s.total_datasets ? Math.round(s.active_apis / s.total_datasets * 100) : 0;
-    const openPct = s.total_datasets ? Math.round(s.open_datasets / s.total_datasets * 100) : 0;
-
-    el.innerHTML = '';
-    // Card 1 — Organizations
-    const c1 = document.createElement('div'); c1.className = 'kpi-card';
-    const n1 = document.createElement('div'); n1.className = 'kpi-n'; n1.id = 'kpi-orgs';
-    c1.appendChild(n1);
-    const l1 = document.createElement('div'); l1.className = 'kpi-label'; l1.textContent = '등록 기관'; c1.appendChild(l1);
-    const s1 = document.createElement('div'); s1.className = 'kpi-sub';
-    s1.textContent = '공공 ' + govOrgs.length.toLocaleString() + ' · 민간 ' + prvOrgs.length; c1.appendChild(s1);
-    el.appendChild(c1);
-
-    // Card 2 — Datasets
-    const c2 = document.createElement('div'); c2.className = 'kpi-card';
-    const n2 = document.createElement('div'); n2.className = 'kpi-n'; n2.id = 'kpi-ds';
-    c2.appendChild(n2);
-    const l2 = document.createElement('div'); l2.className = 'kpi-label'; l2.textContent = '데이터셋'; c2.appendChild(l2);
-    const bar2 = document.createElement('div'); bar2.className = 'kpi-bar';
-    const fill2 = document.createElement('div'); fill2.className = 'kpi-bar-fill';
-    fill2.style.cssText = 'width:0;background:var(--up)'; fill2.dataset.target = openPct;
-    bar2.appendChild(fill2); c2.appendChild(bar2);
-    const s2 = document.createElement('div'); s2.className = 'kpi-sub';
-    s2.textContent = '공개율 ' + openPct + '%'; c2.appendChild(s2);
-    el.appendChild(c2);
-
-    // Card 3 — Dual-track score
-    const c3 = document.createElement('div'); c3.className = 'kpi-card';
-    const n3 = document.createElement('div'); n3.className = 'kpi-n';
-    n3.style.cssText = 'font-size:clamp(1rem,2.5vw,1.4rem)';
-    n3.innerHTML = '<span style="color:var(--accent)">' + (s.avg_score_gov || '-') + '</span><span style="color:var(--dim);font-size:0.7em"> / </span><span style="color:#B794F6">' + (s.avg_score_private || '-') + '</span>';
-    c3.appendChild(n3);
-    const l3 = document.createElement('div'); l3.className = 'kpi-label'; l3.textContent = '공공 / 민간 평균 점수'; c3.appendChild(l3);
-    const bar3 = document.createElement('div'); bar3.className = 'kpi-bar';
-    const fill3 = document.createElement('div'); fill3.className = 'kpi-bar-fill';
-    fill3.style.cssText = 'width:0;background:var(--accent)'; fill3.dataset.target = apiPct;
-    bar3.appendChild(fill3); c3.appendChild(bar3);
-    const s3 = document.createElement('div'); s3.className = 'kpi-sub';
-    s3.textContent = 'API 보유 ' + apiPct + '%'; c3.appendChild(s3);
-    el.appendChild(c3);
-
-    // Animate
-    animateTicker(n1, s.total_orgs, 800);
-    animateTicker(n2, s.total_datasets, 900);
-    setTimeout(() => {
-      fill2.style.width = openPct + '%';
-      fill3.style.width = apiPct + '%';
-    }, 100);
   }
 
   // ── Tier Histogram ──
@@ -711,8 +650,8 @@
           const keys = best.o.org_type !== 'private' ? ['api','fmt','rich','fric'] : ['open','dev','breadth','depth'];
           dimStr = '<br><span style="font-size:10px;color:var(--dim)">' + keys.map(k => k + ':' + (dims[k]||0)).join(' ') + '</span>';
         }
-        // Enhanced private tooltip: domain accessibility breakdown
-        let privExtra = '';
+        // Enhanced tooltip: domain breakdown for private, summary for all
+        let extra = '';
         if (best.o.org_type !== 'gov') {
           const dom = privDomainData?.[best.o.id];
           if (dom && dom.total_domains > 0) {
@@ -721,17 +660,22 @@
             if (dom.paid_domains) parts.push('<span style="color:#4A9EFF">유료 ' + dom.paid_domains + '</span>');
             if (dom.partner_domains) parts.push('<span style="color:#FFB84D">제휴 ' + dom.partner_domains + '</span>');
             if (dom.internal_domains) parts.push('<span style="color:#FF5E7D">내부 ' + dom.internal_domains + '</span>');
-            privExtra = '<br><span style="font-size:10px">도메인 ' + dom.total_domains + '개: ' + parts.join(' · ') + '</span>';
-          }
-          if (best.o.primary_business) {
-            privExtra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(best.o.primary_business) + '</span>';
+            extra = '<br><span style="font-size:10px">도메인 ' + dom.total_domains + '개: ' + parts.join(' · ') + '</span>';
           }
         }
+        if (best.o.summary) {
+          const sum = best.o.summary.length > 80 ? best.o.summary.slice(0, 80) + '…' : best.o.summary;
+          extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(sum) + '</span>';
+        } else if (best.o.primary_business) {
+          const pb = best.o.primary_business.length > 80 ? best.o.primary_business.slice(0, 80) + '…' : best.o.primary_business;
+          extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(pb) + '</span>';
+        }
         tip.innerHTML = '<b>' + esc(best.o.name) + '</b>'
+          + (best.o.name_en ? ' <span style="font-size:10px;color:var(--dim)">' + esc(best.o.name_en) + '</span>' : '')
           + (tier ? ' <span style="font-size:10px;color:' + (TIER_COLORS[tier] || 'var(--accent)') + '">' + esc(tier) + '</span>' : '') + '<br>'
           + '<span style="color:var(--muted);font-size:11px">' + esc(catLabel(best.o.industry)) + ' · ' + (best.o.org_type !== 'private' ? '공공' : '민간') + '</span><br>'
           + '데이터셋 <span class="tv">' + fmt(best.o.total_datasets) + '</span> · API <span class="tv">' + best.o.active_apis + '</span> · 점수 <span class="tv">' + best.o.avg_ai_score + '</span>'
-          + dimStr + privExtra;
+          + dimStr + extra;
         canvas.style.cursor = 'crosshair';
       } else { tip.style.display = 'none'; canvas.style.cursor = 'default'; }
     });
@@ -963,53 +907,126 @@
     const dtd = document.createElement('td'); dtd.colSpan = 6; dtd.className = 'org-detail';
     dr.appendChild(dtd); row.after(dr);
 
-    const orgData = allOrgs.find(o => o.id === org.id) || org;
+    const o = allOrgs.find(x => x.id === org.id) || org;
+    const isPriv = o.org_type === 'private';
+    const AUTH_LABELS = { none: '인증 없음', api_key: 'API 키', approval: '승인 필요', oauth: 'OAuth', unknown: '미확인' };
 
-    if (orgData.summary) {
-      const s = document.createElement('div');
-      s.style.cssText = 'font-size:13px;color:var(--text);line-height:1.6;margin-bottom:6px;';
-      s.textContent = orgData.summary; dtd.appendChild(s);
+    // Header: name + english + industry
+    const hdr = document.createElement('div'); hdr.className = 'od-header';
+    const title = document.createElement('span'); title.className = 'od-title'; title.textContent = o.name;
+    hdr.appendChild(title);
+    if (o.name_en) { const en = document.createElement('span'); en.className = 'od-en'; en.textContent = o.name_en; hdr.appendChild(en); }
+    const ind = document.createElement('span'); ind.className = 'od-industry';
+    ind.textContent = catLabel(o.industry) + ' · ' + (isPriv ? '민간' : '공공');
+    hdr.appendChild(ind);
+    if (o.data_tier) hdr.insertAdjacentHTML('beforeend', tierBadge(o.data_tier));
+    dtd.appendChild(hdr);
+
+    // Summary / primary_business
+    const desc = o.summary || o.primary_business;
+    if (desc) {
+      const sum = document.createElement('div'); sum.className = 'od-summary'; sum.textContent = desc;
+      dtd.appendChild(sum);
     }
 
-    // Dimension breakdown
-    const dims = orgData.score_dimensions;
+    // Stats grid
+    const stats = document.createElement('div'); stats.className = 'od-stats';
+    const statItems = [
+      [fmt(o.total_datasets), '데이터셋'],
+      [fmt(o.open_datasets), '공개'],
+      [String(o.active_apis), 'API'],
+      [String(o.avg_ai_score), '점수'],
+      [AUTH_LABELS[o.easiest_auth] || o.easiest_auth || '-', '인증'],
+    ];
+    if (isPriv) statItems.push([String(o.total_domains || 0), '도메인']);
+    for (const [n, l] of statItems) {
+      const s = document.createElement('div'); s.className = 'od-stat';
+      const sn = document.createElement('div'); sn.className = 'od-stat-n'; sn.textContent = n;
+      const sl = document.createElement('div'); sl.className = 'od-stat-l'; sl.textContent = l;
+      s.appendChild(sn); s.appendChild(sl); stats.appendChild(s);
+    }
+    dtd.appendChild(stats);
+
+    // Score dimension bars
+    const dims = o.score_dimensions;
     if (dims) {
-      const isPriv = orgData.org_type === 'private';
       const keys = isPriv
         ? [['open','개방성'],['dev','DevEx'],['breadth','범위'],['depth','깊이']]
-        : [['api','API'],['fmt','포맷'],['rich','풍부'],['fric','용이']];
-      const dimEl = document.createElement('div'); dimEl.className = 'dim-breakdown';
+        : [['api','API 커버리지'],['fmt','포맷 품질'],['rich','데이터 풍부도'],['fric','접근 용이성']];
+      const dimEl = document.createElement('div'); dimEl.className = 'od-dims';
       for (const [k, label] of keys) {
         const val = dims[k] || 0;
-        const item = document.createElement('div'); item.className = 'dim-item';
-        const lbl = document.createElement('span'); lbl.className = 'dim-item-label'; lbl.textContent = label;
-        const barW = document.createElement('span'); barW.className = 'dim-item-bar';
-        const barF = document.createElement('span'); barF.className = 'dim-item-fill';
-        barF.style.cssText = 'width:' + val + '%;background:var(--accent)';
-        barW.appendChild(barF);
-        const valEl = document.createElement('span'); valEl.className = 'dim-item-val'; valEl.textContent = val;
-        item.appendChild(lbl); item.appendChild(barW); item.appendChild(valEl);
-        dimEl.appendChild(item);
+        const d = document.createElement('div'); d.className = 'od-dim';
+        const lbl = document.createElement('span'); lbl.className = 'od-dim-lbl'; lbl.textContent = label;
+        const track = document.createElement('span'); track.className = 'od-dim-track';
+        const fill = document.createElement('span'); fill.className = 'od-dim-fill';
+        const color = val >= 70 ? 'var(--up)' : val >= 40 ? 'var(--accent)' : 'var(--down)';
+        fill.style.cssText = 'width:' + val + '%;background:' + color;
+        track.appendChild(fill);
+        const valEl = document.createElement('span'); valEl.className = 'od-dim-val'; valEl.textContent = val;
+        d.appendChild(lbl); d.appendChild(track); d.appendChild(valEl);
+        dimEl.appendChild(d);
       }
       dtd.appendChild(dimEl);
     }
 
-    const meta = document.createElement('div');
-    meta.style.cssText = 'display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
-    const h = document.createElement('span'); h.className = 'org-detail-head';
-    h.textContent = orgData.total_datasets + '건 · 공개 ' + orgData.open_datasets + ' · API ' + orgData.active_apis;
-    meta.appendChild(h);
-    if (orgData.dev_portal_url) {
-      const a = document.createElement('a'); a.className = 'od-link'; a.target = '_blank'; a.rel = 'noopener';
-      a.href = normalizeUrl(orgData.dev_portal_url); a.textContent = '개발자 포털 →';
-      a.addEventListener('click', e => e.stopPropagation()); meta.appendChild(a);
+    // Domain list (private, top 10)
+    if (isPriv && allDomains.length) {
+      const orgDoms = allDomains.filter(d => d.org_id === o.id);
+      if (orgDoms.length) {
+        const domSec = document.createElement('div'); domSec.className = 'od-domains';
+        const domTitle = document.createElement('div'); domTitle.className = 'od-dom-title';
+        domTitle.textContent = '데이터 도메인 (' + orgDoms.length + '개)';
+        domSec.appendChild(domTitle);
+        const grid = document.createElement('div'); grid.className = 'od-dom-grid';
+        const show = orgDoms.sort((a, b) => (b.significance || 0) - (a.significance || 0)).slice(0, 12);
+        for (const d of show) {
+          const item = document.createElement('div'); item.className = 'od-dom-item';
+          const acc = d.accessibility || 'unknown';
+          const cls = { api_open: 'b-open', api_paid: 'b-paid', partnership: 'b-partner', internal: 'b-internal' }[acc] || 'b-unknown';
+          const badge = document.createElement('span'); badge.className = 'dom-badge ' + cls;
+          badge.textContent = { api_open: '공개', api_paid: '유료', partnership: '제휴', internal: '내부' }[acc] || '?';
+          badge.style.cssText = 'font-size:9px;padding:2px 5px;';
+          const nm = document.createElement('span'); nm.className = 'od-dom-name'; nm.textContent = d.domain_name;
+          item.appendChild(badge); item.appendChild(nm);
+          if (d.description) {
+            const desc2 = document.createElement('span'); desc2.className = 'od-dom-desc';
+            desc2.textContent = d.description.length > 40 ? d.description.slice(0, 40) + '…' : d.description;
+            item.appendChild(desc2);
+          }
+          grid.appendChild(item);
+        }
+        domSec.appendChild(grid);
+        if (orgDoms.length > 12) {
+          const more = document.createElement('div');
+          more.style.cssText = 'font-size:10px;color:var(--dim);margin-top:4px;';
+          more.textContent = '… +' + (orgDoms.length - 12) + '개 더';
+          domSec.appendChild(more);
+        }
+        dtd.appendChild(domSec);
+      }
     }
-    if (orgData.website) {
+
+    // Links
+    const links = document.createElement('div'); links.className = 'od-links';
+    if (o.dev_portal_url) {
       const a = document.createElement('a'); a.className = 'od-link'; a.target = '_blank'; a.rel = 'noopener';
-      a.href = normalizeUrl(orgData.website);
-      a.textContent = '웹사이트'; a.addEventListener('click', e => e.stopPropagation()); meta.appendChild(a);
+      a.href = normalizeUrl(o.dev_portal_url); a.textContent = '개발자 포털 →';
+      a.addEventListener('click', e => e.stopPropagation()); links.appendChild(a);
     }
-    dtd.appendChild(meta);
+    if (o.website) {
+      const a = document.createElement('a'); a.className = 'od-link'; a.target = '_blank'; a.rel = 'noopener';
+      a.href = normalizeUrl(o.website); a.textContent = '웹사이트 →';
+      a.addEventListener('click', e => e.stopPropagation()); links.appendChild(a);
+    }
+    if (!isPriv) {
+      const a = document.createElement('a'); a.className = 'od-link'; a.target = '_blank'; a.rel = 'noopener';
+      a.href = 'https://www.data.go.kr/tcs/dss/selectDataSetList.do?instt=' + encodeURIComponent(o.name);
+      a.textContent = 'data.go.kr →'; a.addEventListener('click', e => e.stopPropagation()); links.appendChild(a);
+    }
+    if (links.children.length) dtd.appendChild(links);
+
+    dr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   // ── Private content ──
@@ -1337,7 +1354,6 @@
       };
 
       renderStrip(statsData);
-      renderKPIGrid(statsData);
 
       const govCount = govOrgs.length;
       const privCount = prvOrgs.length;
