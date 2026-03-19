@@ -324,6 +324,7 @@
   <div class="tab-bar" id="tab-bar">
     <button class="tab-btn" data-tab="gov">공공 <span class="tab-count" id="gov-count"></span></button>
     <button class="tab-btn active" data-tab="private">민간 <span class="tab-count" id="priv-count"></span></button>
+    <button class="tab-btn" data-tab="global">해외 <span class="tab-count" id="global-count"></span></button>
   </div>
   <div id="content"><div class="empty">로딩 중...</div></div>
   <div id="leaderboard"></div>
@@ -466,7 +467,7 @@
       .slice(0, 15);
 
     const prvOrgs = allOrgs
-      .filter(o => o.org_type !== 'gov' && o.avg_ai_score > 0)
+      .filter(o => o.org_type === 'private' && o.avg_ai_score > 0)
       .sort((a, b) => (b.avg_ai_score || 0) - (a.avg_ai_score || 0))
       .slice(0, 15);
 
@@ -527,6 +528,7 @@
   function renderMain() {
     const c = $('#content'); c.innerHTML = '';
     if (activeTab === 'gov') renderGovContent(c);
+    else if (activeTab === 'global') renderGlobalContent(c);
     else renderPrivContent(c);
   }
 
@@ -549,13 +551,13 @@
 
     const rightWrap = document.createElement('div'); rightWrap.style.cssText = 'display:flex;align-items:center;gap:8px;';
     const tog = document.createElement('div'); tog.className = 'toggle-group';
-    for (const [k, l] of [['gov','공공'],['private','민간'],['all','전체']]) {
+    for (const [k, l] of [['gov','공공'],['private','민간'],['global','해외'],['all','전체']]) {
       const btn = document.createElement('span'); btn.className = 'toggle-btn' + (scatterFilter === k ? ' active' : '');
       btn.textContent = l;
       btn.addEventListener('click', (e) => { e.stopPropagation(); scatterFilter = k; renderScatterPanel(); });
       tog.appendChild(btn);
     }
-    const filtered = allOrgs.filter(o => scatterFilter === 'all' ? true : scatterFilter === 'gov' ? o.org_type === 'gov' : o.org_type !== 'gov');
+    const filtered = allOrgs.filter(o => scatterFilter === 'all' ? true : o.org_type === scatterFilter);
     const badge = document.createElement('span'); badge.className = 'badge-src';
     badge.textContent = filtered.length.toLocaleString() + ' 기관';
     rightWrap.appendChild(tog); rightWrap.appendChild(badge);
@@ -623,7 +625,7 @@
       const x = Math.max(P.l + 4, Math.min(W - P.r - 4, xP(lv) + jx));
       const y = Math.max(P.t + 4, Math.min(H - P.b - 4, yP(ai) + jy));
       const r = Math.max(2, Math.min(9, 1.5 + Math.log2(o.total_datasets + 1)));
-      const color = o.org_type !== 'gov' ? '#B794F6' : '#F5A623';
+      const color = o.org_type === 'gov' ? '#F5A623' : o.org_type === 'global' ? '#4A9EFF' : '#B794F6';
       ctx.globalAlpha = 0.15; ctx.fillStyle = color;
       ctx.beginPath(); ctx.arc(x, y, r + 3, 0, Math.PI * 2); ctx.fill();
       ctx.globalAlpha = 0.65; ctx.fillStyle = color;
@@ -647,12 +649,12 @@
         const dims = best.o.score_dimensions;
         let dimStr = '';
         if (dims) {
-          const keys = best.o.org_type !== 'private' ? ['api','fmt','rich','fric'] : ['open','dev','breadth','depth'];
+          const keys = best.o.org_type === 'gov' ? ['api','fmt','rich','fric'] : ['open','dev','breadth','depth'];
           dimStr = '<br><span style="font-size:10px;color:var(--dim)">' + keys.map(k => k + ':' + (dims[k]||0)).join(' ') + '</span>';
         }
         // Enhanced tooltip: domain breakdown for private, summary for all
         let extra = '';
-        if (best.o.org_type !== 'gov') {
+        if (best.o.org_type === 'private' || best.o.org_type === 'global') {
           const dom = privDomainData?.[best.o.id];
           if (dom && dom.total_domains > 0) {
             const parts = [];
@@ -668,7 +670,7 @@
         tip.innerHTML = '<b>' + esc(best.o.name) + '</b>'
           + (best.o.name_en ? ' <span style="font-size:10px;color:var(--dim)">' + esc(best.o.name_en) + '</span>' : '')
           + (tier ? ' <span style="font-size:10px;color:' + (TIER_COLORS[tier] || 'var(--accent)') + '">' + esc(tier) + '</span>' : '') + '<br>'
-          + '<span style="color:var(--muted);font-size:11px">' + esc(catLabel(best.o.industry)) + ' · ' + (best.o.org_type !== 'private' ? '공공' : '민간') + '</span><br>'
+          + '<span style="color:var(--muted);font-size:11px">' + esc(catLabel(best.o.industry)) + ' · ' + (best.o.org_type === 'gov' ? '공공' : best.o.org_type === 'global' ? '해외' : '민간') + '</span><br>'
           + '데이터셋 <span class="tv">' + fmt(best.o.total_datasets) + '</span> · API <span class="tv">' + best.o.active_apis + '</span> · 점수 <span class="tv">' + best.o.avg_ai_score + '</span>'
           + dimStr + extra;
         canvas.style.cursor = 'crosshair';
@@ -1035,7 +1037,7 @@
   // ── Private content ──
   function renderPrivContent(c) {
     expandedPrivOrg = null;
-    const privOrgs = allOrgs.filter(o => o.org_type !== 'gov');
+    const privOrgs = allOrgs.filter(o => o.org_type === 'private');
 
     const sorted = [...privOrgs].sort((a, b) => {
       const ad = privDomainData?.[a.id], bd = privDomainData?.[b.id];
@@ -1121,6 +1123,108 @@
     for (const [k, c] of Object.entries(ACCESS_COLOR)) {
       const sp = document.createElement('span');
       sp.innerHTML = '<span class="dot" style="background:' + c + '"></span>' + DOMAIN_LABELS[k];
+      leg.appendChild(sp);
+    }
+    panel.appendChild(leg); c.appendChild(panel);
+  }
+
+  // ── Global content ──
+  function renderGlobalContent(c) {
+    expandedPrivOrg = null;
+    const globalOrgs = allOrgs.filter(o => o.org_type === 'global');
+
+    const sorted = [...globalOrgs].sort((a, b) => {
+      const ad = privDomainData?.[a.id], bd = privDomainData?.[b.id];
+      const at = ad?.total_domains || 0, bt = bd?.total_domains || 0;
+      if (at !== bt) return bt - at;
+      return (b.avg_ai_score || 0) - (a.avg_ai_score || 0);
+    });
+
+    const panel = document.createElement('div'); panel.className = 'panel';
+    const head = document.createElement('div'); head.className = 'panel-head';
+    head.innerHTML = '<span>해외 기관·기업</span>';
+    const badge = document.createElement('span'); badge.className = 'badge-src';
+    badge.textContent = sorted.length + ' 기관';
+    head.appendChild(badge); panel.appendChild(head);
+
+    const note = document.createElement('div');
+    note.style.cssText = 'padding:10px 16px;font-size:11px;color:var(--dim);border-bottom:1px solid var(--line-soft)';
+    note.textContent = '같은 민간 스코어링 기준으로 해외 기관을 평가. 한국 데이터 생태계의 글로벌 대비 위치를 가늠하기 위함.';
+    panel.appendChild(note);
+
+    const tbl = document.createElement('table'); tbl.className = 'tbl';
+    const thead = document.createElement('thead'); const hr = document.createElement('tr');
+    for (const col of [
+      { l: '기관' }, { l: '데이터셋', c: 'r hide-m' }, { l: 'API', c: 'r hide-m' }, { l: '데이터 접근성' },
+    ]) { const th = document.createElement('th'); th.className = col.c || ''; th.textContent = col.l; hr.appendChild(th); }
+    thead.appendChild(hr); tbl.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const org of sorted) {
+      const dom = privDomainData?.[org.id];
+      const tr = document.createElement('tr'); tr.dataset.orgId = org.id;
+
+      const tdN = document.createElement('td');
+      const nm = document.createElement('span'); nm.className = 'pc-name'; nm.textContent = org.name;
+      tdN.appendChild(nm);
+      if (org.data_tier) tdN.insertAdjacentHTML('beforeend', tierBadge(org.data_tier, true));
+      if (org.name_en) {
+        const en = document.createElement('span'); en.className = 'pc-ind';
+        en.textContent = org.name_en;
+        tdN.appendChild(en);
+      }
+
+      const tdDs = document.createElement('td'); tdDs.className = 'r n hide-m'; tdDs.textContent = fmt(org.total_datasets);
+      const tdApi = document.createElement('td'); tdApi.className = 'r n hide-m';
+      tdApi.style.color = org.active_apis > 0 ? 'var(--accent)' : 'var(--dim)'; tdApi.textContent = org.active_apis;
+
+      const tdGap = document.createElement('td');
+      if (dom && dom.total_domains > 0) {
+        const wrap = document.createElement('div'); wrap.className = 'pc-gap-wrap';
+        const accessible = (dom.open_domains || 0) + (dom.paid_domains || 0);
+        const frac = document.createElement('span'); frac.className = 'pc-gap-frac';
+        frac.textContent = accessible + '/' + dom.total_domains;
+        wrap.appendChild(frac);
+        const bar = document.createElement('div'); bar.className = 'pc-gap-bar'; bar.style.flex = '1';
+        const known = (dom.open_domains || 0) + (dom.paid_domains || 0) + (dom.partner_domains || 0) + (dom.internal_domains || 0);
+        const counts = { api_open: dom.open_domains || 0, api_paid: dom.paid_domains || 0, partnership: dom.partner_domains || 0, internal: dom.internal_domains || 0, unknown: Math.max(0, (dom.total_domains || 0) - known) };
+        for (const k of ACCESS_ORDER) {
+          if (!counts[k]) continue;
+          const seg = document.createElement('div'); seg.className = 'pc-gap-seg';
+          seg.style.flex = counts[k];
+          const b = document.createElement('div'); b.className = 'bar';
+          b.style.width = '100%'; b.style.background = ACCESS_COLOR[k];
+          seg.appendChild(b);
+          const lbl = document.createElement('span'); lbl.className = 'lbl';
+          lbl.style.color = ACCESS_COLOR[k]; lbl.textContent = DOMAIN_LABELS[k] + ' ' + counts[k];
+          seg.appendChild(lbl);
+          bar.appendChild(seg);
+        }
+        wrap.appendChild(bar);
+        const pct = Math.round(accessible / dom.total_domains * 100);
+        const pctEl = document.createElement('span'); pctEl.className = 'pc-gap-pct';
+        pctEl.style.color = pct >= 50 ? '#00E5A0' : pct >= 20 ? '#FFB84D' : '#FF5E7D';
+        pctEl.textContent = pct + '%';
+        wrap.appendChild(pctEl);
+        tdGap.appendChild(wrap);
+      } else {
+        const scoreEl = document.createElement('span');
+        scoreEl.style.cssText = 'font-family:var(--mono);font-size:12px;color:var(--accent)';
+        scoreEl.textContent = org.avg_ai_score ? org.avg_ai_score + '점' : '—';
+        tdGap.appendChild(scoreEl);
+      }
+
+      tr.appendChild(tdN); tr.appendChild(tdDs); tr.appendChild(tdApi); tr.appendChild(tdGap);
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('click', () => togglePrivExpand(org, dom, tr, tbody));
+      tbody.appendChild(tr);
+    }
+    tbl.appendChild(tbody); panel.appendChild(tbl);
+
+    const leg = document.createElement('div'); leg.className = 'legend';
+    for (const [k, clr] of Object.entries(ACCESS_COLOR)) {
+      const sp = document.createElement('span');
+      sp.innerHTML = '<span class="dot" style="background:' + clr + '"></span>' + DOMAIN_LABELS[k];
       leg.appendChild(sp);
     }
     panel.appendChild(leg); c.appendChild(panel);
@@ -1241,29 +1345,19 @@
       empty.textContent = '검색 결과 없음'; c.appendChild(empty); return;
     }
 
-    const govResults = matched.filter(o => o.org_type === 'gov');
-    const prvResults = matched.filter(o => o.org_type !== 'gov');
-
-    if (govResults.length) {
+    const sections = [
+      { label: '공공', orgs: matched.filter(o => o.org_type === 'gov') },
+      { label: '민간', orgs: matched.filter(o => o.org_type === 'private') },
+      { label: '해외', orgs: matched.filter(o => o.org_type === 'global') },
+    ];
+    for (const { label, orgs } of sections) {
+      if (!orgs.length) continue;
       const sec = document.createElement('div'); sec.className = 'sr-section';
-      sec.textContent = '공공 (' + govResults.length + ')'; c.appendChild(sec);
-      for (const o of govResults.slice(0, 50)) {
-        c.appendChild(buildSearchItem(o));
-      }
-      if (govResults.length > 50) {
+      sec.textContent = label + ' (' + orgs.length + ')'; c.appendChild(sec);
+      for (const o of orgs.slice(0, 50)) c.appendChild(buildSearchItem(o));
+      if (orgs.length > 50) {
         const more = document.createElement('div'); more.className = 'empty';
-        more.textContent = '외 ' + (govResults.length - 50) + '건'; c.appendChild(more);
-      }
-    }
-    if (prvResults.length) {
-      const sec = document.createElement('div'); sec.className = 'sr-section';
-      sec.textContent = '민간 (' + prvResults.length + ')'; c.appendChild(sec);
-      for (const o of prvResults.slice(0, 50)) {
-        c.appendChild(buildSearchItem(o));
-      }
-      if (prvResults.length > 50) {
-        const more = document.createElement('div'); more.className = 'empty';
-        more.textContent = '외 ' + (prvResults.length - 50) + '건'; c.appendChild(more);
+        more.textContent = '외 ' + (orgs.length - 50) + '건'; c.appendChild(more);
       }
     }
   }
@@ -1273,7 +1367,7 @@
     const nm = document.createElement('div'); nm.className = 'sr-ds'; nm.textContent = o.name;
     it.appendChild(nm);
     const info = document.createElement('div'); info.className = 'sr-org';
-    info.textContent = catLabel(o.industry) + ' · ' + (o.org_type === 'gov' ? '공공' : '민간')
+    info.textContent = catLabel(o.industry) + ' · ' + (o.org_type === 'gov' ? '공공' : o.org_type === 'global' ? '해외' : '민간')
       + ' · 데이터셋 ' + fmt(o.total_datasets) + ' · API ' + o.active_apis;
     it.appendChild(info);
     if (o.summary) {
@@ -1335,13 +1429,13 @@
             })),
           };
         }
-        // Re-render if on private tab
-        if (activeTab === 'private') renderMain();
+        // Re-render if on private/global tab (domain data needed)
+        if (activeTab === 'private' || activeTab === 'global') renderMain();
       }).catch(() => console.error('[DataKorea] domains load failed'));
 
       // Compute stats from loaded data
       const govOrgs = allOrgs.filter(o => o.org_type === 'gov');
-      const prvOrgs = allOrgs.filter(o => o.org_type !== 'gov');
+      const prvOrgs = allOrgs.filter(o => o.org_type === 'private');
       const totalDs = allOrgs.reduce((s, o) => s + (o.total_datasets || 0), 0);
       const openDs = allOrgs.reduce((s, o) => s + (o.open_datasets || 0), 0);
       const activeApis = allOrgs.reduce((s, o) => s + (o.active_apis || 0), 0);
@@ -1360,8 +1454,10 @@
 
       const govCount = govOrgs.length;
       const privCount = prvOrgs.length;
+      const globalCount = allOrgs.filter(o => o.org_type === 'global').length;
       const gc = $('#gov-count'); if (gc) gc.textContent = govCount.toLocaleString();
       const pc = $('#priv-count'); if (pc) pc.textContent = privCount;
+      const glc = $('#global-count'); if (glc) glc.textContent = globalCount;
 
       renderLeaderboard();
       renderTierHist();
