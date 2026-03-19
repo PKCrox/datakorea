@@ -8,12 +8,34 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/datakorea"><img src="https://img.shields.io/npm/v/datakorea.svg" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/datakorea"><img src="https://img.shields.io/npm/dm/datakorea.svg" alt="npm downloads"></a>
-  <a href="https://github.com/PKCrox/datakorea/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PKCrox/datakorea.svg" alt="license"></a>
-  <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="node version">
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="zero dependencies">
+  <a href="https://pkcrox.github.io/datakorea/"><strong>Web Dashboard</strong></a> ·
+  <a href="https://www.npmjs.com/package/datakorea">npm</a> ·
+  <a href="#cli">CLI</a> ·
+  <a href="#as-a-library">Library</a>
 </p>
+
+<p align="center">
+  <a href="https://pkcrox.github.io/datakorea/"><img src="https://img.shields.io/badge/dashboard-live-F5A623?style=flat-square" alt="dashboard"></a>
+  <a href="https://www.npmjs.com/package/datakorea"><img src="https://img.shields.io/npm/v/datakorea.svg?style=flat-square" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/datakorea"><img src="https://img.shields.io/npm/dm/datakorea.svg?style=flat-square" alt="npm downloads"></a>
+  <a href="https://github.com/PKCrox/datakorea/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PKCrox/datakorea.svg?style=flat-square" alt="license"></a>
+  <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg?style=flat-square" alt="zero dependencies">
+</p>
+
+---
+
+## Web Dashboard
+
+**[pkcrox.github.io/datakorea](https://pkcrox.github.io/datakorea/)** — 서버 없이 브라우저에서 바로 탐색.
+
+- 듀얼트랙 스코어링 — 공공(데이터 품질) vs 민간(데이터 개방성)
+- 스캐터플롯 — 1,354 기관 접근 난이도 × 데이터 품질, 민간 호버 시 도메인 분포
+- 리더보드 — 공공/민간 Top 15 랭킹
+- 섹터별 테이블 — 22개 카테고리, 지역 계층 구조 (17개 광역시도)
+- 민간 도메인 탐색 — 61개 기업 4,091개 도메인 접근성 분석
+- 클라이언트 사이드 검색 — API 의존성 0, 순수 정적 사이트
+
+기술: 순수 HTML/CSS/JS 단일 파일. React 없음, 번들러 없음, 프레임워크 없음.
 
 ---
 
