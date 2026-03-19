@@ -663,8 +663,8 @@
             extra = '<br><span style="font-size:10px">도메인 ' + dom.total_domains + '개: ' + parts.join(' · ') + '</span>';
           }
         }
-        const desc1 = best.o.one_liner || best.o.primary_business || '';
-        if (desc1) extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(desc1) + '</span>';
+        if (best.o.data_summary) extra += '<br><span style="font-size:11px;color:var(--muted)">' + esc(best.o.data_summary) + '</span>';
+        else if (best.o.one_liner) extra += '<br><span style="font-size:10px;color:var(--dim)">' + esc(best.o.one_liner) + '</span>';
         tip.innerHTML = '<b>' + esc(best.o.name) + '</b>'
           + (best.o.name_en ? ' <span style="font-size:10px;color:var(--dim)">' + esc(best.o.name_en) + '</span>' : '')
           + (tier ? ' <span style="font-size:10px;color:' + (TIER_COLORS[tier] || 'var(--accent)') + '">' + esc(tier) + '</span>' : '') + '<br>'
@@ -917,7 +917,15 @@
     if (o.data_tier) hdr.insertAdjacentHTML('beforeend', tierBadge(o.data_tier));
     dtd.appendChild(hdr);
 
-    // Summary / one_liner / primary_business
+    // Data summary (what data they have)
+    if (o.data_summary) {
+      const ds = document.createElement('div');
+      ds.style.cssText = 'font-size:13px;color:var(--text);line-height:1.5;margin-bottom:10px;padding:8px 12px;background:rgba(245,166,35,0.05);border-radius:6px;border-left:3px solid var(--accent);';
+      ds.textContent = o.data_summary;
+      dtd.appendChild(ds);
+    }
+
+    // Org description
     const desc = o.one_liner || o.primary_business || o.summary;
     if (desc) {
       const sum = document.createElement('div'); sum.className = 'od-summary'; sum.textContent = desc;
